@@ -19,11 +19,11 @@
 
 (function(global, module, define) {
 	function Alea(seed) {
-		var me = this,
+		let me = this,
 			mash = Mash();
 
 		me.next = function() {
-			var t = 2091639 * me.s0 + me.c * 2.3283064365386963e-10; // 2^-32
+			let t = 2091639 * me.s0 + me.c * 2.3283064365386963e-10; // 2^-32
 			me.s0 = me.s1;
 			me.s1 = me.s2;
 			return me.s2 = t - (me.c = t | 0);
@@ -52,7 +52,7 @@
 	}
 
 	function impl(seed, opts) {
-		var xg = new Alea(seed),
+		let xg = new Alea(seed),
 			state = opts && opts.state,
 			prng = xg.next;
 
@@ -71,13 +71,13 @@
 	}
 
 	function Mash() {
-		var n = 0xefc8249d;
+		let n = 0xefc8249d;
 
-		var mash = function(data) {
+		let mash = function(data) {
 			data = String(data);
-			for (var i=0; i<data.length; i++) {
+			for (let i=0; i<data.length; i++) {
 				n += data.charCodeAt(i);
-				var h = 0.02519603282416938 * n;
+				let h = 0.02519603282416938 * n;
 				n = h >>> 0;
 				h -= n;
 				h *= n;
