@@ -73,8 +73,10 @@ const random = (function() {
     }
 
     function init(seed) {
-        let rand = new Random(seed);
-        return rand.next;
+        let rand = new Random(seed),
+            method = () => rand.next();
+
+        return method;
     }
 
     return init;
