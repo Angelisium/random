@@ -35,7 +35,7 @@ console.log(MyRandomInt()); // 0.5790662220679224
  - int32 method
  - double method
  - npm package
- - custom min - max
+ - custom min - max (works with positive and negative numbers) (the only condition : type of min/max === numbers and min < max)
  - custom number type (integer, float)
 
 ... what else ?
