@@ -39,9 +39,8 @@ const random = (function() {
     }
 
     class Random {
-        constructor(s) {
-            let seed = s?s: Date.now(),
-                mash = new Mash(),
+        constructor(seed) {
+            let mash = new Mash(),
                 seeds = [];
     
             // Apply the seeding algorithm from Baagoe.
@@ -72,9 +71,50 @@ const random = (function() {
         }
     }
 
-    function init(seed) {
+    function isSeed(seed) {
+        if(typeof seed === "number" || typeof seed === "bigint" || typeof seed === "string") {
+            return true;
+        } return false;
+    }
+
+    function init(...params) {
+        let options = (typeof params[0] === "object") ? params[0] : (params[1] && typeof params[1] === "object" ? params[1] : {}),
+            seed = isSeed(param[0]) ? param[0] : (options.seed && isSeed(options.seed) ? options.seed : Date.now());
+
+        let min = options.min ? Number(options.min) : 0,
+            max = options.max ? Number(options.max) : 1,
+            float = typeof options.decimal === 'boolean' ? options.float : true,
+            decimal = options.decimal ? parseInt(options.decimal) : -1;
+
+        if(isNaN(min)) {
+            throw new TypeError("the min parameter is not a number");
+        }
+        if(isNaN(max)) {
+            throw new TypeError("the max parameter is not a number");
+        }
+        if(isNaN(decimal)) {
+            throw new TypeError("the decimal parameter is not a number");
+        }
+
+        if(!(min < max)) {
+            throw new RangeError("min must be strictly less than max");
+        }
+        if(decimal < -1) {
+            throw new RangeError("the decimal parameter cannot be less than -1");
+        }
+
+        if(decimal === 0) {
+            float = false;
+        }
+
         let rand = new Random(seed),
-            method = () => rand.next();
+            method = function() {
+                let result = rand.next() * (max - min +1);
+                if(float === true) {
+                    return decimal < 0 ? result : Math.floor(result * decimal)
+                }
+                return (float ? Math.floor(result) : result) + min;
+            };
 
         return method;
     }
