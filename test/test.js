@@ -29,7 +29,6 @@ for(let i=0; i<10000; i++) {
     let z = randrange.toRange(0,5);
     if(!tab[z]) tab[z] = 0;
     tab[z]++;
-    //addTextNode(`${randrange.toFloatRange(0.5,5.5)} \t`);
 }
 addTextNode(`${tab.toString()} \t`);
 
@@ -41,5 +40,9 @@ for(let i=0; i<10000; i++) {
     randTab[z]++;
     //addTextNode(`${randrange.toFloatRange(0.5,5.5)} \t`);
 }
+addTextNode(`${randTab.toString()} \n`);
 
-addTextNode(`${randTab.toString()} \t`);
+var randrange = new Random("ca8+94dx1zad8xa4z6");
+for(let i=0; i<20; i++) {
+    addTextNode(`${randrange.toFloatRange(0.5,5.5)} \t`);
+}

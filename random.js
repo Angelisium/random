@@ -85,7 +85,31 @@ const Random = (function() {
             } else {
                 throw new RangeError("min and max must be an integer");
             }
-            
+        }
+        toFloatRange(min, max, d) {
+            if(typeof min === "number" && typeof max === "number") {
+                if(min < max) {
+                    let decimal = d ? parseInt(d) : 0;
+                    if(isNaN(decimal) || decimal < -1 || decimal === 0) {
+                        let dmin = min.toString().split('.')[1].length,
+                            dmax = max.toString().split('.')[1].length;
+
+                        decimal = (dmin >= dmax) ? dmin : dmax;
+                    }
+
+                    decimal = decimal === 0 ? 2 : decimal;
+
+                    let result = this.next() * (max - min);
+                        result = result * (10 ** decimal);
+                        result = result | 0;
+                        result = result / (10 ** decimal);
+                    return result + min;
+                } else {
+                    throw new RangeError("min must be strictly less than max");
+                }
+            } else {
+                throw new RangeError("min and max must be an integer");
+            }
         }
     }
 
