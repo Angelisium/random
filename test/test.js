@@ -26,7 +26,7 @@ var end = Date.now();
 
 addTextNode(`Alea()\n`);
 addTextsNode(tab);
-addTextNode(`Execute in ${end-start}ms (${end}) (${start})\n\n`);
+addTextNode(`Execute 999999loops in ${end-start}ms (${end}) (${start})\n\n`);
 
 var tab = [];
 var start = Date.now();
@@ -38,7 +38,7 @@ for(let a=0; a<999999; a++) {
 var end = Date.now();
 addTextNode(`Math.random()\n`);
 addTextsNode(tab);
-addTextNode(`Execute in ${end-start}ms (${end}) (${start})\n\n`);
+addTextNode(`Execute 999999loops in ${end-start}ms (${end}) (${start})\n\n`);
 
 var rand = new Random("myCustomSeed"+timeseed),
     tab = [];
@@ -52,7 +52,7 @@ for(let a=0; a<999999; a++) {
 var end = Date.now();
 addTextNode(`Random()\n`);
 addTextsNode(tab);
-addTextNode(`Execute in ${end-start}ms (${end}) (${start})\n\n`);
+addTextNode(`Execute 999999loops in ${end-start}ms (${end}) (${start})\n\n`);
 
 /*
 var alea_test_vid = alea(),
