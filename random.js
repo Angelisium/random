@@ -80,10 +80,10 @@ const Random = (function() {
                 if(min < max) {
                     return ((this.next() * (max - min)) | 0) + min;
                 } else {
-                    throw new RangeError("");
+                    throw new RangeError("min must be strictly less than max");
                 }
             } else {
-
+                throw new RangeError("min and max must be an integer");
             }
             
         }
