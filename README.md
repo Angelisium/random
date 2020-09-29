@@ -56,8 +56,8 @@ console.log(MyTwoRandInstance.toFloatRange(0, 5, 6)); // 1.005691
 ## Soon
  - int32 method
  - double method
- OK ~~- node compatibility~~
- OK ~~- custom min - max (works with positive and negative numbers) (the only condition : type of min/max === numbers and min < max)~~
- OK ~~- custom number type (integer, float)~~
+ - OK ~~node compatibility~~
+ - OK ~~custom min - max (works with positive and negative numbers) (the only condition : type of min/max === numbers and min < max)~~
+ - OK ~~custom number type (integer, float)~~
 
 ... what else ?
