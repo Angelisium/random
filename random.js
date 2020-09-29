@@ -91,8 +91,11 @@ const Random = (function() {
                 if(min < max) {
                     let decimal = d ? parseInt(d) : 0;
                     if(isNaN(decimal) || decimal < -1 || decimal === 0) {
-                        let dmin = min.toString().split('.')[1].length,
+                        let dmin = min.toString().split('.'),
                             dmax = max.toString().split('.')[1].length;
+
+                        dmin = dmin[1] ? dmin[1].length : 0;
+                        dmax = dmax[1] ? dmax[1].length : 0;
 
                         decimal = (dmin >= dmax) ? dmin : dmax;
                     }
