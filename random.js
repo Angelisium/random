@@ -45,8 +45,9 @@ const Random = (function() {
     }
 
     class Random {
-        constructor(seed) {
-            let mash = new Mash(),
+        constructor(s) {
+            let seed = isSeed(s) ? s : Date.now(),
+                mash = new Mash(),
                 seeds = [];
     
             this.seed = seed;
