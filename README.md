@@ -2,8 +2,9 @@
 Alea.js is the original seeded random function by Johannes Baagøe.
 
 I've rewrote 😊 :
-- random.js
-- random.php
+- browser-js/random.js => browser version
+- node-js/random.js => nodejs version ~ soon a npm version but （˶′◡‵˶）
+- php/random.php => a php version
 
 
 ## Soon
