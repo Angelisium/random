@@ -1,4 +1,4 @@
-# random
+# Random
 Alea.js is the original seeded random function by Johannes Baagøe.
 
 I've rewrote 😊 :
